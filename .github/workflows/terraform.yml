@@ -19,10 +19,6 @@ jobs:
       ARM_TENANT_ID: ${{ secrets.AZURE_TENANT_ID }}
     runs-on: ubuntu-latest
     environment: production
-#  terraform:
-#    name: 'Terraform'
-#    runs-on: ubuntu-latest
-#    environment: production
 
     # Use the Bash shell regardless whether the GitHub Actions runner is ubuntu-latest, macos-latest, or windows-latest
     defaults:
@@ -49,7 +45,7 @@ jobs:
         id: init
         run: |
           terraform init
-          terraform workspace new dev
+#          terraform workspace new dev
           terraform workspace select dev
       - name: Terraform Validate
         id: validate
