@@ -1,0 +1,10 @@
+.vscode
+.vs/
+.idea
+.git
+.terraform/
+.terraform.tfstate.lock.info
+.terraform.lock*
+terraform.tfstate*
+terraform.tfstate
+
