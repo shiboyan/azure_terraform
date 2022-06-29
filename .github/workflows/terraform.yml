@@ -43,7 +43,6 @@ jobs:
         id: init
         run: |
           terraform init
-          terraform workspace select dev
       - name: Terraform Validate
         id: validate
         #        if: github.event_name == 'pull_request'
