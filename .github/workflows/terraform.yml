@@ -5,7 +5,8 @@ on:
     branches:
       - "dev"
   pull_request:
-    - "dev"
+    - branches:
+      - "dev"
 
 permissions:
   contents: write
