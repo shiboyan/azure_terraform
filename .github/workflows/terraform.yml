@@ -41,11 +41,9 @@ jobs:
           client-id: ${{ secrets.AZURE_CLIENT_ID}}
       # Install the latest version of Terraform CLI and configure the Terraform CLI configuration file with a Terraform Cloud user API token
       - name: Setup Terraform
-        uses: hashicorp/terraform-github-actions@master
-#        uses: hashicorp/setup-terraform@v2
+        uses: hashicorp/setup-terraform@v1
         with:
-          tf_actions_version: 1.1.9
-#          terraform_version: 1.1.9
+          terraform_version: 1.1.9
       - name: Terraform Init
         id: init
         run: |
