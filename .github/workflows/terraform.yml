@@ -17,13 +17,13 @@ jobs:
       ARM_CLIENT_SECRET: ${{ secrets.AZURE_SECRET_ID }}
       ARM_SUBSCRIPTION_ID: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
       ARM_TENANT_ID: ${{ secrets.AZURE_TENANT_ID }}
-      working-directory: ./tf
+      tf_actions_working_dir: ./tf
     runs-on: ubuntu-latest
     environment: production
     defaults:
       run:
         shell: bash
-
+        working-directory: ${{ env.tf_actions_working_dir }}
 
     steps:
       # Checkout the repository to the GitHub Actions runner
@@ -38,10 +38,10 @@ jobs:
           client-id: ${{ secrets.AZURE_CLIENT_ID}}
       # Install the latest version of Terraform CLI and configure the Terraform CLI configuration file with a Terraform Cloud user API token
       - name: Setup Terraform
-        uses: hashicorp/terraform-github-actions@master
+#        uses: hashicorp/terraform-github-actions@master
+        uses: hashicorp/setup-terraform@v2
         with:
           tf_actions_version: 1.1.9
-          tf_actions_working_dir: ${{env.working-directory}}
       - name: Terraform Init
         id: init
         run: |
