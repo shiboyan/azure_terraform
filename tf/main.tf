@@ -1,5 +1,15 @@
+terraform {
+  required_providers {
+    azurerm = {
+      source  = "hashicorp/azurerm"
+      version = "3.12.0"
+    }
+  }
+  required_version = ">=1.2.4"
+}
 provider "azurerm" {
   features {}
+
 
   #  subscription_id = "1f8377a3-e548-4aae-a516-6a1a644c434c"
   #  client_id       = "185d5555-e433-4286-b619-9afc9430f42d"
