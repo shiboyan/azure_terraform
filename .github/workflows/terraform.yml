@@ -42,8 +42,8 @@ jobs:
       - name: Terraform Init
         id: init
         run: |
-          terraform workspace dev
-          terraform select dev
+          terraform workspace create dev
+          terraform workspace select dev
           terraform init
       - name: Terraform Format
         run: terraform fmt -check
@@ -91,8 +91,8 @@ jobs:
       - name: Terraform Init
         id: init
         run: |
-          terraform workspace production
-          terraform select production
+          terraform workspace create production
+          terraform workspace select production
           terraform init
       - name: Terraform Format
         run: terraform fmt -check
