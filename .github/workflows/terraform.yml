@@ -61,9 +61,10 @@ jobs:
         # Generates an execution plan for Terraform
       - name: 'Terraform Plan'
         if: github.event_name == 'pull_request'
-        run: terraform plan -var "env=${{ matrix.environment }}"
+        run: terraform plan -var="env=${{ matrix.environment }}"
         continue-on-error: true
       - name: 'Terraform Apply'
         #        if: github.event_name == 'pull_request'
         #if: github.ref == 'refs/heads/"develop"' && github.event_name == 'pull_request'
-        run: terraform apply -var 'env=${{ matrix.environment }}' -auto-approve
+        run: terraform apply -var="env=${{ matrix.environment }}" -auto-approve
+
