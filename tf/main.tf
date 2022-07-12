@@ -24,6 +24,13 @@ resource "azurerm_resource_group" "minatest" {
   name     = "minagithub"
   location = "West Europe"
 }
+
+variable "env" {
+}
+
+output "env" {
+  value = var.env
+}
 #variable "subscription-id" {}
 #variable "client-id" {}
 #variable "client-secret" {}
