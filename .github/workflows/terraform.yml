@@ -54,10 +54,9 @@ jobs:
         run: terraform fmt -check
       # Generates an execution plan for Terraform
       - name: Terraform Plan
-        id: plan
+#        id: plan
 #        if: github.event_name == 'pull_request'
-        run: |
-          terraform plan -no-color -input=false
+        run: terraform plan -no-color -input=false
         continue-on-error: true
 #      - name: Update Pull Request
 #        uses: actions/github-script@v6
@@ -98,7 +97,6 @@ jobs:
 #        if: github.event_name == 'push'
 #        run: terraform apply -auto-approve -var="AZURE_SUBSCRIPTION_ID=$(PAT)" -var="password=$(PASSWORD)"
 #        run: terraform apply -auto-approve -input=false
-        run: |
-          terraform apply -auto-approve -input=false
+        run: terraform apply -auto-approve -input=false
         
 
