@@ -3,8 +3,9 @@ name: 'Terraform'
 on:
   push:
     branches:
-      - "dev"
-      - "release"
+#      - "dev"
+#      - "release"
+      - "master"
   pull_request:
 
 permissions:
@@ -12,10 +13,11 @@ permissions:
   id-token: write
 jobs:
   terraform:
+    name: 'Terraform'
     strategy:
       matrix:
         env: [ dev, nonprod,prod ]
-    name: 'Terraform'${{ matrix.env }}
+
     env:
       ARM_CLIENT_ID: ${{ secrets.AZURE_CLIENT_ID }}
       ARM_CLIENT_SECRET: ${{ secrets.AZURE_SECRET_ID }}
